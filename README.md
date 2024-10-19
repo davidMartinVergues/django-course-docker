@@ -361,4 +361,10 @@ En github actions podemos usar acciones predefinidas en github o crear nuestra a
 
 Después del login en dockerhub necesitamos que nuestro código esté disponible para las github actions para ello necesitamos el `step Checkout`
 
-Si alguno de de estos pasos falla el job de github actions fallara tb 
+Si alguno de de estos pasos falla el job de github actions fallara tb por lo q no se se subira el proyecto.
+
+Cuango hagamos push de todo el proyecto a github podremos ver las actioins:
+
+![not found](img/63.png)
+
+
