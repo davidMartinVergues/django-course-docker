@@ -194,7 +194,8 @@ flake8>=3.9.2,<3.10
 En nuestro docker-compose añadiremos un argumento
 
 ```yml
-version: "3.9"
+# version: "3.9" 
+# en las ultimas veriosnes de docker compose ya no es ecesario especificar la verison en el archivo
 
 services:
   app:
@@ -345,7 +346,7 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USER }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Test
         run: docker compose run --rm app sh -c "python manage.py test"
       - name: Lint
