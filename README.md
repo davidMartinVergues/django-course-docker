@@ -332,24 +332,24 @@ creamos una carpeta `.github`
 ---
 name: Checks
 
-on: [push] # trigger
+on: [push]
 
 jobs:
   test-lint:
-    name: Test and test-lint
-    runs-on: ubuntu-20.04
+    name: Test and Lint
+    runs-on: ubuntu-latest
     steps:
       - name: Login to Docker Hub
-        uses: docker/login-action@v1
+        uses: docker/login-action@v2
         with:
           username: ${{ secrets.DOCKERHUB_USER }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Test
-        run: docker-compose run --rm app sh -c "python manage.py test"
+        run: docker compose run --rm app sh -c "python manage.py test"
       - name: Lint
-        run: docker-compose run --rm app sh -c "flake8"
+        run: docker compose run --rm app sh -c "flake8"
 
 ```
 
@@ -367,4 +367,5 @@ Cuango hagamos push de todo el proyecto a github podremos ver las actioins:
 
 ![not found](img/63.png)
 
+ahora cada vez que hagamos un push a github se disparara estas dos comprobacoines (test y linting) si fallan no se subira el codigo?
 
